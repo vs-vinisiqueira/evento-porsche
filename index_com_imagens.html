@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP by Porsche | Evento Exclusivo</title>
+
+    <style>
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", "Poppins", "Inter", Arial, sans-serif;
+            background-color: #050505;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        :root {
+            --preto: #050505;
+            --preto-secundario: #0d0d0d;
+            --dourado: #c9a24a;
+            --dourado-claro: #e1c16e;
+            --branco: #ffffff;
+            --cinza-metalico: #8f8f8f;
+            --cinza-escuro: #1a1a1a;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--dourado);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            max-width: 720px;
+            color: #cccccc;
+            font-size: 1rem;
+            margin-bottom: 45px;
+        }
+
+        .gold-line {
+            width: 70px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--dourado), transparent);
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================== */
+
+        header {
+            width: 100%;
+            padding: 24px 8%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(5, 5, 5, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(201, 162, 74, 0.18);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--branco);
+        }
+
+        .logo span {
+            color: var(--dourado);
+        }
+
+        .menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .menu a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #d8d8d8;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: var(--dourado);
+        }
+
+        /* =========================
+           PÁGINA INICIAL
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 8% 90px;
+            background:
+                linear-gradient(90deg, rgba(5, 5, 5, 0.98), rgba(5, 5, 5, 0.72), rgba(5, 5, 5, 0.98)),
+                radial-gradient(circle at 75% 40%, rgba(201, 162, 74, 0.18), transparent 28%),
+                linear-gradient(135deg, #050505 0%, #111111 50%, #050505 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 620px;
+            height: 220px;
+            right: 6%;
+            bottom: 18%;
+            border: 1px solid rgba(201, 162, 74, 0.25);
+            border-radius: 50% 50% 18% 18%;
+            transform: skewX(-12deg);
+            opacity: 0.55;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 2px;
+            right: 12%;
+            bottom: 29%;
+            background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+            opacity: 0.75;
+        }
+
+        .hero-content {
+            max-width: 760px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            color: var(--dourado);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.7rem, 7vw, 6.2rem);
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 span {
+            color: var(--dourado);
+        }
+
+        .hero p {
+            color: #d0d0d0;
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 14px 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.78rem;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--dourado);
+            color: #050505;
+            border: 1px solid var(--dourado);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--dourado);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: var(--branco);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--dourado);
+            color: var(--dourado);
+        }
+
+        /* =========================
+           SOBRE O EVENTO
+        ========================== */
+
+        .about {
+            background:
+                linear-gradient(180deg, #050505, #0b0b0b),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.02) 0px,
+                    rgba(255, 255, 255, 0.02) 1px,
+                    transparent 1px,
+                    transparent 8px
+                );
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .about-card {
+            background: linear-gradient(145deg, #111111, #070707);
+            border: 1px solid rgba(201, 162, 74, 0.22);
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--dourado), transparent);
+        }
+
+        .about-card h3 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--branco);
+            margin-bottom: 22px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: #cfcfcf;
+        }
+
+        .info-list strong {
+            color: var(--dourado);
+            font-weight: 500;
+        }
+
+        /* =========================
+           DESTAQUES
+        ========================== */
+
+        .features {
+            background-color: var(--preto);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: #0d0d0d;
+            padding: 32px 26px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201, 162, 74, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            color: var(--dourado);
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+
+        .feature-card p {
+            color: #bdbdbd;
+            font-size: 0.92rem;
+        }
+
+
+
+        /* =========================
+           GALERIA / MÍDIAS SOCIAIS
+        ========================== */
+
+        .gallery {
+            background:
+                radial-gradient(circle at 80% 15%, rgba(201, 162, 74, 0.12), transparent 28%),
+                linear-gradient(180deg, #050505, #0b0b0b);
+        }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            align-items: flex-end;
+            margin-bottom: 45px;
+        }
+
+        .gallery-header .section-subtitle {
+            margin-bottom: 0;
+        }
+
+        .gallery-label {
+            color: var(--cinza-metalico);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.72rem;
+            white-space: nowrap;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .gallery-card {
+            background: #0d0d0d;
+            border: 1px solid rgba(201, 162, 74, 0.22);
+            overflow: hidden;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201, 162, 74, 0.62);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            filter: saturate(0.95) contrast(1.05);
+        }
+
+        .gallery-card-content {
+            padding: 24px;
+            border-top: 1px solid rgba(201, 162, 74, 0.18);
+        }
+
+        .gallery-card-content h3 {
+            color: var(--dourado);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.88rem;
+            margin-bottom: 10px;
+        }
+
+        .gallery-card-content p {
+            color: #c5c5c5;
+            font-size: 0.92rem;
+        }
+
+        /* =========================
+           PROGRAMAÇÃO
+        ========================== */
+
+        .schedule {
+            background: linear-gradient(180deg, #0b0b0b, #050505);
+        }
+
+        .timeline {
+            max-width: 900px;
+            border-left: 1px solid rgba(201, 162, 74, 0.45);
+            padding-left: 35px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 38px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -42px;
+            top: 4px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--dourado);
+            box-shadow: 0 0 18px rgba(201, 162, 74, 0.8);
+        }
+
+        .timeline-time {
+            color: var(--dourado);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item h3 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: #c5c5c5;
+            max-width: 700px;
+        }
+
+        /* =========================
+           INSCRIÇÃO / CONTATO
+        ========================== */
+
+        .contact {
+            background:
+                radial-gradient(circle at 20% 20%, rgba(201, 162, 74, 0.12), transparent 25%),
+                linear-gradient(135deg, #050505, #101010);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-info p {
+            color: #cccccc;
+            margin-bottom: 24px;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-details div {
+            margin-bottom: 18px;
+            color: #d7d7d7;
+        }
+
+        .contact-details strong {
+            color: var(--dourado);
+            font-weight: 500;
+        }
+
+        form {
+            background: rgba(13, 13, 13, 0.96);
+            border: 1px solid rgba(201, 162, 74, 0.25);
+            padding: 36px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.72rem;
+            color: var(--dourado);
+            margin-bottom: 8px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            background: #050505;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--branco);
+            outline: none;
+            font-family: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--dourado);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--dourado);
+            color: #050505;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: var(--dourado-claro);
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
+        footer {
+            background: #030303;
+            padding: 32px 8%;
+            border-top: 1px solid rgba(201, 162, 74, 0.18);
+            text-align: center;
+        }
+
+        footer p {
+            color: #8f8f8f;
+            font-size: 0.82rem;
+        }
+
+        footer span {
+            color: var(--dourado);
+        }
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================== */
+
+        @media (max-width: 900px) {
+            .menu {
+                display: none;
+            }
+
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero::before,
+            .hero::after {
+                opacity: 0.25;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 70px 6%;
+            }
+
+            header {
+                padding: 20px 6%;
+            }
+
+            .hero {
+                padding: 130px 6% 70px;
+            }
+
+            .hero h1 {
+                letter-spacing: 4px;
+            }
+
+            .features-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <nav>
+            <div class="logo">VIP <span>by Porsche</span></div>
+
+            <ul class="menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#programacao">Programação</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#inscricao">Inscrição</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- PÁGINA INICIAL -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-tag">Experiência presencial exclusiva</div>
+
+            <h1>VIP <span>by Porsche</span></h1>
+
+            <p>
+                Uma noite exclusiva. Uma revelação histórica. Uma experiência inspirada
+                no universo Porsche, reservada para poucos convidados.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#inscricao" class="btn-primary">Solicitar inscrição</a>
+                <a href="#sobre" class="btn-secondary">Conhecer o evento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE O EVENTO -->
+    <section class="about" id="sobre">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 class="section-title">Sobre o Evento</h2>
+                <div class="gold-line"></div>
+
+                <p>
+                    O VIP by Porsche é um evento acadêmico fictício criado para representar
+                    uma experiência premium voltada a clientes de alto nível, unindo luxo,
+                    tecnologia automotiva, inovação e relacionamento.
+                </p>
+
+                <p>
+                    A proposta do evento é apresentar uma jornada sofisticada, com palestra
+                    sobre novas tecnologias automotivas, momento de networking, coquetel
+                    exclusivo e a revelação conceitual de um novo veículo ainda não anunciado.
+                </p>
+
+                <p>
+                    Cada detalhe visual e comunicacional foi pensado para transmitir exclusividade,
+                    precisão, desejo e sofisticação.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>Informações principais</h3>
+
+                <ul class="info-list">
+                    <li><strong>Formato:</strong> Presencial</li>
+                    <li><strong>Público:</strong> Clientes de alto nível da marca</li>
+                    <li><strong>Experiência:</strong> Tecnologia, luxo e networking</li>
+                    <li><strong>Destaque:</strong> Apresentação exclusiva de um novo carro</li>
+                    <li><strong>Ambiente:</strong> Premium, reservado e sofisticado</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTAQUES DO EVENTO -->
+    <section class="features">
+        <h2 class="section-title">Experiências</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-subtitle">
+            Uma programação desenhada para criar conexão, desejo e percepção de valor
+            em uma atmosfera reservada.
+        </p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">◇</div>
+                <h3>Tecnologia</h3>
+                <p>
+                    Conteúdo sobre inovação automotiva, performance, conectividade
+                    e avanços aplicados à mobilidade premium.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✦</div>
+                <h3>Coquetel</h3>
+                <p>
+                    Momento reservado para convivência, gastronomia leve e ambientação
+                    elegante durante a experiência.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⌁</div>
+                <h3>Networking</h3>
+                <p>
+                    Espaço estratégico para relacionamento entre convidados, marca
+                    e representantes do segmento automotivo.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">▱</div>
+                <h3>Revelação</h3>
+                <p>
+                    Apresentação exclusiva de um novo carro conceitual, pensada para
+                    gerar impacto e antecipação.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- GALERIA / MÍDIAS SOCIAIS -->
+    <section class="gallery" id="galeria">
+        <div class="gallery-header">
+            <div>
+                <h2 class="section-title">Mídias do Evento</h2>
+                <div class="gold-line"></div>
+
+                <p class="section-subtitle">
+                    Peças visuais desenvolvidas para reforçar a atmosfera premium do VIP by Porsche,
+                    destacando exclusividade, tecnologia e o momento de revelação.
+                </p>
+            </div>
+
+            <div class="gallery-label">Divulgação conceitual</div>
+        </div>
+
+        <div class="gallery-grid">
+            <article class="gallery-card">
+                <img src="post_3_vip_by_porsche.jpeg" alt="Arte promocional do VIP by Porsche com carro esportivo coberto e estética premium">
+                <div class="gallery-card-content">
+                    <h3>Experiência Premium</h3>
+                    <p>
+                        Uma comunicação visual voltada ao desejo, ao luxo automotivo
+                        e à percepção de uma noite reservada.
+                    </p>
+                </div>
+            </article>
+
+            <article class="gallery-card">
+                <img src="post_2_vip_by_porsche.jpeg" alt="Arte promocional do VIP by Porsche com ambiente de coquetel, networking e painel automotivo">
+                <div class="gallery-card-content">
+                    <h3>Tecnologia e Networking</h3>
+                    <p>
+                        Peça focada na ambientação do evento, conectando inovação,
+                        coquetel premium e relacionamento entre convidados.
+                    </p>
+                </div>
+            </article>
+
+            <article class="gallery-card">
+                <img src="post_1_vip_by_porsche.jpeg" alt="Arte promocional do VIP by Porsche com silhueta de carro e chamada para revelação exclusiva">
+                <div class="gallery-card-content">
+                    <h3>Revelação Exclusiva</h3>
+                    <p>
+                        Imagem direcionada ao momento central da noite: a apresentação
+                        conceitual de um novo carro ainda não anunciado.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- PROGRAMAÇÃO -->
+    <section class="schedule" id="programacao">
+        <h2 class="section-title">Programação</h2>
+        <div class="gold-line"></div>
+
+        <p class="section-subtitle">
+            Uma sequência objetiva, elegante e imersiva para conduzir os convidados
+            até o momento principal da noite.
+        </p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-time">19h00</div>
+                <h3>Recepção dos convidados</h3>
+                <p>
+                    Entrada reservada, credenciamento e ambientação inicial com trilha
+                    sonora sofisticada.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">19h30</div>
+                <h3>Palestra sobre tecnologia automotiva</h3>
+                <p>
+                    Apresentação sobre inovação, performance, eletrificação, segurança
+                    e novas experiências digitais no setor automotivo premium.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">20h30</div>
+                <h3>Coquetel e networking</h3>
+                <p>
+                    Momento social com música ambiente, conversas estratégicas
+                    e interação entre convidados.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">21h30</div>
+                <h3>Apresentação exclusiva</h3>
+                <p>
+                    Revelação conceitual de um novo carro ainda não anunciado,
+                    com experiência visual e narrativa premium.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-time">22h15</div>
+                <h3>Encerramento</h3>
+                <p>
+                    Finalização da experiência com agradecimento aos convidados
+                    e orientações para contato posterior.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSCRIÇÃO / CONTATO -->
+    <section class="contact" id="inscricao">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 class="section-title">Inscrição</h2>
+                <div class="gold-line"></div>
+
+                <p>
+                    Solicite sua participação na experiência VIP by Porsche. As vagas
+                    são limitadas e direcionadas a convidados selecionados dentro da
+                    proposta acadêmica fictícia do evento.
+                </p>
+
+                <p>
+                    Preencha o formulário para demonstrar interesse em participar
+                    da experiência presencial.
+                </p>
+
+                <div class="contact-details">
+                    <div><strong>Evento:</strong> VIP by Porsche</div>
+                    <div><strong>Formato:</strong> Presencial</div>
+                    <div><strong>Perfil:</strong> Convidados de alto nível</div>
+                    <div><strong>Contato:</strong> atendimento@vipbyporsche.com</div>
+                </div>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
+                </div>
+
+                <div class="form-group">
+                    <label for="interesse">Principal interesse</label>
+                    <select id="interesse" name="interesse">
+                        <option value="">Selecione uma opção</option>
+                        <option value="tecnologia">Tecnologia automotiva</option>
+                        <option value="networking">Networking</option>
+                        <option value="novo-carro">Apresentação do novo carro</option>
+                        <option value="experiencia">Experiência premium</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Escreva uma breve mensagem"></textarea>
+                </div>
+
+                <button type="submit">Enviar solicitação</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>
+            <span>VIP by Porsche</span> — Projeto acadêmico fictício desenvolvido para fins educacionais.
+        </p>
+    </footer>
+
+</body>
+</html>
